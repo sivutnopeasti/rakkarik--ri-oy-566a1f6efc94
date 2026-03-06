@@ -83,7 +83,7 @@ function animateHeroTitle() {
   });
 }
 
-animateHeroTitle();
+if (window === window.top) animateHeroTitle();
 
 /* ---- SCROLL-IN OBSERVER ---- */
 const scrollItems = document.querySelectorAll('.scroll-in');
