@@ -1,0 +1,40 @@
+{
+  "site_id": "566a1f6efc94",
+  "repo": "sivutnopeasti/rakkarik--ri-oy-566a1f6efc94",
+  "company": "Rakkarikööri Oy",
+  "email": "info@otsonointioulu.fi",
+  "place_id": "",
+  "issue_number": 57,
+  "images": {
+    "hero": {
+      "url": "https://images.unsplash.com/photo-1766243062910-bda898a2470c?ixid=M3w4ODYwNTl8MHwxfHNlYXJjaHwxfHxmcmVzaCUyMGNsZWFuJTIwaW5kb29yJTIwYWlyfGVufDB8MHx8fDE3NzI4MDUxMjh8MA&ixlib=rb-4.1.0&w=1920&q=85&auto=format&fit=crop",
+      "alt": "Raitis sisäilma"
+    },
+    "image-1": {
+      "url": "https://images.unsplash.com/photo-1679303777007-c6c4522beb02?ixid=M3w4ODYwNTl8MHwxfHNlYXJjaHwzfHxvem9uZSUyMGdlbmVyYXRvciUyMG1hY2hpbmV8ZW58MHwwfHx8MTc3MjgwNTEyOHww&ixlib=rb-4.1.0&w=1080&q=85&auto=format&fit=crop",
+      "alt": "Otsonointikone"
+    },
+    "image-2": {
+      "url": "https://images.unsplash.com/photo-1757219525975-03b5984bc6e8?ixid=M3w4ODYwNTl8MHwxfHNlYXJjaHwzfHx2ZW50aWxhdGlvbiUyMGR1Y3QlMjBjbGVhbmluZ3xlbnwwfDB8fHwxNzcyODA1MTI5fDA&ixlib=rb-4.1.0&w=1080&q=85&auto=format&fit=crop",
+      "alt": "Ilmanvaihtojärjestelmä"
+    },
+    "image-3": {
+      "url": "https://images.unsplash.com/photo-1565231776967-95aee5973585?ixid=M3w4ODYwNTl8MHwxfHNlYXJjaHwxNXx8YnJpZ2h0JTIwYWlyeSUyMHJvb218ZW58MHwwfHx8MTc3MjgwNTEyOXww&ixlib=rb-4.1.0&w=1080&q=85&auto=format&fit=crop",
+      "alt": "Raitis valoisa huone"
+    },
+    "image-4": {
+      "url": "https://images.unsplash.com/photo-1565231776967-95aee5973585?ixid=M3w4ODYwNTl8MHwxfHNlYXJjaHwxNXx8YnJpZ2h0JTIwYWlyeSUyMHJvb218ZW58MHwwfHx8MTc3MjgwNTEyOXww&ixlib=rb-4.1.0&w=1080&q=85&auto=format&fit=crop",
+      "alt": "Raitis, valoisa tila otsonoinnin jälkeen"
+    }
+  },
+  "texts": {
+    "h1": "Otsonointi Oulu",
+    "h2_1": "Raitis ilma takaisin tiloihin",
+    "h2_2": "Mitä otsonointi hoitaa",
+    "h2_3": "Neljä vaihetta raikkaaseen tilaan",
+    "h2_4": "Mitä saat joka kerta",
+    "h2_5": "Otsonointi sopii näihin tiloihin",
+    "h2_6": "Rakkarikööri Oy",
+    "hero_p": "Otsonointi poistaa homeen, tupakan ja muiden epäpuhtauksien hajut tehokkaasti. Palvelemme Oulun alueen yrityksiä ja yksityishenkilöitä."
+  }
+}

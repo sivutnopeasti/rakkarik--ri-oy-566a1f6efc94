@@ -1,0 +1,1204 @@
+/* ===========================
+   RAKKARIKÖÖRI OY – STYLE.CSS
+   Harmaasävyinen / Moderni
+   =========================== */
+
+/* ---- RESET & BASE ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --c-bg:        #f2f4f6;
+  --c-surface:   #ffffff;
+  --c-surface2:  #e8eaed;
+  --c-border:    #d0d5dc;
+  --c-text:      #1a1d21;
+  --c-text-sub:  #586070;
+  --c-accent:    #2e3a4e;
+  --c-accent2:   #4a6080;
+  --c-accent-lt: #e4eaf2;
+  --c-cta:       #2e3a4e;
+  --c-cta-hover: #1b2636;
+  --c-tag:       #c4d0e0;
+  --c-tag-text:  #2e3a4e;
+  --c-ok:        #2a7a4b;
+  --c-err:       #c0392b;
+
+  --r-sm:  8px;
+  --r-md:  14px;
+  --r-lg:  22px;
+  --r-xl:  32px;
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.07);
+  --shadow-md: 0 6px 24px rgba(0,0,0,.10);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,.14);
+
+  --font-head: 'Sora', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --header-h: 72px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--c-text);
+  background: var(--c-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+a { color: var(--c-accent); text-decoration: none; }
+a:focus-visible {
+  outline: 3px solid var(--c-accent2);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+ul { list-style: none; }
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* ---- BUTTONS ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .7rem 1.5rem;
+  border-radius: var(--r-sm);
+  font-family: var(--font-head);
+  font-size: .95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+.btn:hover { transform: scale(1.05); }
+
+.btn-primary {
+  background: var(--c-cta);
+  color: #fff;
+  border-color: var(--c-cta);
+}
+.btn-primary:hover {
+  background: var(--c-cta-hover);
+  box-shadow: 0 8px 24px rgba(46,58,78,.32);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255,255,255,.65);
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,.12);
+  box-shadow: 0 8px 24px rgba(0,0,0,.22);
+}
+
+.btn-nav {
+  background: var(--c-cta);
+  color: #fff;
+  border-color: var(--c-cta);
+  padding: .52rem 1.15rem;
+  font-size: .88rem;
+}
+.btn-nav:hover {
+  background: var(--c-cta-hover);
+  box-shadow: 0 4px 16px rgba(46,58,78,.28);
+}
+
+/* ---- HEADER / NAV ---- */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(22,26,32,.97);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  transition: box-shadow .3s ease;
+}
+.site-header.scrolled {
+  box-shadow: 0 4px 24px rgba(0,0,0,.28);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  height: var(--header-h);
+}
+
+.nav-logo {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -.01em;
+  flex-shrink: 0;
+  margin-right: auto;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: .15rem;
+  align-items: center;
+}
+
+.nav-link {
+  position: relative;
+  font-size: .88rem;
+  font-weight: 500;
+  color: rgba(255,255,255,.75);
+  padding: .38rem .65rem;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  right: 50%;
+  height: 2px;
+  background: var(--c-accent2);
+  border-radius: 2px;
+  transition: left .25s ease, right .25s ease;
+}
+.nav-link:hover { color: #fff; }
+.nav-link:hover::after { left: .5rem; right: .5rem; }
+
+/* ---- HAMBURGER ---- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.hamburger-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform .35s ease, opacity .35s ease;
+}
+.hamburger.open .hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger.open .hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---- MOBILE MENU ---- */
+.mobile-menu {
+  background: #1a1d21;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.mobile-menu.open {
+  max-height: 500px;
+}
+.mobile-menu ul {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.25rem 1.75rem;
+  gap: .2rem;
+}
+.mobile-nav-link {
+  display: block;
+  padding: .65rem .8rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255,255,255,.8);
+  border-radius: var(--r-sm);
+  transition: background .2s ease, color .2s ease;
+  text-decoration: none;
+}
+.mobile-nav-link:hover {
+  background: rgba(255,255,255,.08);
+  color: #fff;
+}
+.mobile-cta {
+  margin-top: .6rem;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  display: flex;
+}
+
+/* ---- SECTIONS SHARED ---- */
+.section { padding-block: 5rem; }
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--c-tag-text);
+  background: var(--c-tag);
+  padding: .28rem .85rem;
+  border-radius: 999px;
+  margin-bottom: .85rem;
+}
+
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(1.65rem, 3.5vw, 2.45rem);
+  font-weight: 700;
+  line-height: 1.17;
+  color: var(--c-text);
+  letter-spacing: -.022em;
+  margin-bottom: .8rem;
+}
+
+.section-intro {
+  font-size: 1.05rem;
+  color: var(--c-text-sub);
+  max-width: 640px;
+  margin-inline: auto;
+  line-height: 1.7;
+}
+
+/* ---- HERO ---- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: var(--header-h);
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(18,26,36,.90) 0%,
+    rgba(38,54,76,.74) 50%,
+    rgba(18,26,36,.86) 100%
+  );
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  padding-block: 5rem;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-head);
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--c-tag);
+  margin-bottom: 1rem;
+  opacity: .9;
+}
+
+.hero-title {
+  font-family: var(--font-head);
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: -.03em;
+  margin-bottom: 1.3rem;
+}
+
+.hero-title .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+.hero-title .char.space {
+  display: inline-block;
+  width: .28em;
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,.76);
+  max-width: 560px;
+  margin-bottom: 2.1rem;
+  line-height: 1.68;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .9rem;
+}
+
+/* ---- LOGO BAR ---- */
+.logo-bar {
+  background: var(--c-surface);
+  padding-block: 2.5rem;
+  border-top: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.logo-bar-heading {
+  text-align: center;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--c-text-sub);
+  margin-bottom: 1.6rem;
+}
+
+.logo-bar-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem 3.5rem;
+}
+
+.partner-logo {
+  color: var(--c-border);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  transition: color .3s ease;
+  cursor: default;
+}
+.partner-logo svg {
+  height: 40px;
+  width: auto;
+  max-width: 150px;
+}
+.partner-logo:hover { color: var(--c-accent); }
+
+/* ---- PALVELUT ---- */
+.palvelut-section { background: var(--c-bg); }
+
+.palvelut-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.8rem;
+}
+
+.palvelu-card {
+  background: var(--c-surface);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--c-border);
+  transition: box-shadow .25s ease, transform .25s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.palvelu-card:hover { box-shadow: var(--shadow-lg); }
+
+.palvelu-card-img {
+  width: 100%;
+  height: 215px;
+  overflow: hidden;
+}
+.palvelu-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+.palvelu-card:hover .palvelu-card-img img { transform: scale(1.05); }
+
+.palvelu-card-body { padding: 1.7rem; }
+
+.palvelu-icon {
+  width: 46px;
+  height: 46px;
+  color: var(--c-accent2);
+  margin-bottom: .85rem;
+}
+.palvelu-icon svg { width: 100%; height: 100%; }
+
+.palvelu-title {
+  font-family: var(--font-head);
+  font-size: 1.17rem;
+  font-weight: 700;
+  color: var(--c-text);
+  margin-bottom: .55rem;
+  letter-spacing: -.01em;
+}
+
+.palvelu-desc {
+  font-size: .94rem;
+  color: var(--c-text-sub);
+  line-height: 1.68;
+}
+
+/* ---- PROSESSIVAIHEET ---- */
+.prosessi-section {
+  background: var(--c-accent);
+  color: #fff;
+}
+.prosessi-section .section-tag {
+  background: rgba(255,255,255,.14);
+  color: rgba(255,255,255,.88);
+}
+.prosessi-section .section-title { color: #fff; }
+
+.prosessi-aikajana {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: .75rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,.2) transparent;
+}
+
+.prosessi-step {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.step-number {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.15);
+  border: 2px solid rgba(255,255,255,.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1.1rem;
+  flex-shrink: 0;
+}
+
+.step-title {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: .45rem;
+}
+
+.step-desc {
+  font-size: .9rem;
+  color: rgba(255,255,255,.7);
+  line-height: 1.62;
+}
+
+.prosessi-arrow {
+  display: flex;
+  align-items: center;
+  padding-top: 1.7rem;
+  color: rgba(255,255,255,.32);
+  flex-shrink: 0;
+}
+.prosessi-arrow svg { width: 32px; height: 32px; }
+
+/* ---- TAKUU ---- */
+.takuu-section { background: var(--c-surface); }
+
+.takuu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+}
+
+.takuu-item {
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: 2rem 1.6rem;
+  text-align: center;
+  transition: box-shadow .25s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.takuu-item:hover { box-shadow: var(--shadow-md); }
+
+.takuu-icon {
+  width: 52px;
+  height: 52px;
+  color: var(--c-accent2);
+  margin-inline: auto;
+  margin-bottom: 1.1rem;
+}
+.takuu-icon svg { width: 100%; height: 100%; }
+
+.takuu-title {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--c-text);
+  margin-bottom: .52rem;
+}
+
+.takuu-desc {
+  font-size: .92rem;
+  color: var(--c-text-sub);
+  line-height: 1.62;
+}
+
+/* ---- KOHTEET ---- */
+.kohteet-section { background: var(--c-bg); }
+
+.kohteet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.kohde-card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: 1.8rem 1.5rem;
+  transition: box-shadow .25s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.kohde-card:hover { box-shadow: var(--shadow-md); }
+
+.kohde-card-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--c-accent2);
+  margin-bottom: 1rem;
+}
+.kohde-card-icon svg { width: 100%; height: 100%; }
+
+.kohde-title {
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--c-text);
+  margin-bottom: .5rem;
+}
+
+.kohde-desc {
+  font-size: .91rem;
+  color: var(--c-text-sub);
+  line-height: 1.64;
+}
+
+/* ---- TIETOA ---- */
+.tietoa-section { background: var(--c-surface); }
+
+.tietoa-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.tietoa-content .section-tag { display: inline-block; }
+.tietoa-content .section-title { text-align: left; }
+
+.tietoa-content p {
+  font-size: .97rem;
+  color: var(--c-text-sub);
+  margin-bottom: 1rem;
+  line-height: 1.72;
+}
+
+.tietoa-stats {
+  margin-top: 1.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.stat-item {}
+
+.stat-bar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: .38rem;
+}
+
+.stat-label {
+  font-size: .87rem;
+  color: var(--c-text-sub);
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: .87rem;
+  color: var(--c-accent);
+  font-weight: 700;
+  font-family: var(--font-head);
+}
+
+.stat-bar-bg {
+  height: 7px;
+  background: var(--c-surface2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.stat-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--c-accent2), var(--c-accent));
+  border-radius: 999px;
+  transition: width 1.2s ease-out;
+}
+
+.tietoa-image img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---- SIJAINTI ---- */
+.sijainti-section { background: var(--c-bg); }
+
+.sijainti-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.sijainti-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem 2.5rem;
+}
+
+.sijainti-detail {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: .95rem;
+  color: var(--c-text-sub);
+}
+.sijainti-detail svg {
+  width: 20px;
+  height: 20px;
+  color: var(--c-accent2);
+  flex-shrink: 0;
+}
+.sijainti-detail a {
+  color: var(--c-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color .2s;
+}
+.sijainti-detail a:hover { color: var(--c-cta-hover); }
+
+/* ---- YHTEYDENOTTO ---- */
+.yhteydenotto-section {
+  background: linear-gradient(135deg, var(--c-accent) 0%, #1b2636 100%);
+  color: #fff;
+}
+
+.yhteydenotto-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.yhteydenotto-content .section-tag {
+  background: rgba(255,255,255,.14);
+  color: rgba(255,255,255,.88);
+}
+.yhteydenotto-content .section-title {
+  color: #fff;
+  text-align: left;
+}
+.yhteydenotto-content p {
+  color: rgba(255,255,255,.7);
+  font-size: .97rem;
+  margin-bottom: 1.6rem;
+  line-height: 1.7;
+}
+
+.yhteystiedot-lista {
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+}
+
+.yhteystieto-rivi {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.yhteystieto-rivi svg {
+  width: 22px;
+  height: 22px;
+  color: rgba(255,255,255,.5);
+  flex-shrink: 0;
+}
+.yhteystieto-rivi:hover { color: var(--c-tag); }
+
+/* ---- FORM ---- */
+.lomake-wrapper {
+  background: var(--c-surface);
+  border-radius: var(--r-lg);
+  padding: 2.2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  margin-bottom: 1.2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-label {
+  font-size: .84rem;
+  font-weight: 600;
+  color: var(--c-text);
+  letter-spacing: .01em;
+}
+
+.form-input {
+  width: 100%;
+  padding: .65rem .9rem;
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--r-sm);
+  font-family: var(--font-body);
+  font-size: .95rem;
+  color: var(--c-text);
+  background: var(--c-bg);
+  transition: border-color .2s ease, box-shadow .2s ease;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-input:focus {
+  border-color: var(--c-accent2);
+  box-shadow: 0 0 0 3px rgba(74,96,128,.15);
+}
+.form-input::placeholder { color: #aab0bb; }
+
+.form-textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.6;
+}
+
+.form-select { cursor: pointer; }
+
+/* Submit button states */
+.btn-submit {
+  width: 100%;
+  justify-content: center;
+  position: relative;
+  min-height: 48px;
+  margin-top: .4rem;
+}
+
+.btn-spinner {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(255,255,255,.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  flex-shrink: 0;
+}
+
+.btn-check {
+  display: none;
+  width: 22px;
+  height: 22px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.btn-check .check-circle {
+  stroke-dasharray: 62.8;
+  stroke-dashoffset: 62.8;
+  transition: stroke-dashoffset .5s ease .1s;
+}
+.btn-check .check-path {
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+  transition: stroke-dashoffset .5s ease .4s;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.btn-submit.loading .btn-text { display: none; }
+.btn-submit.loading .btn-spinner { display: block; }
+
+.btn-submit.success {
+  background: var(--c-ok);
+  border-color: var(--c-ok);
+  pointer-events: none;
+}
+.btn-submit.success .btn-text   { display: none; }
+.btn-submit.success .btn-spinner { display: none; }
+.btn-submit.success .btn-check  { display: block; }
+.btn-submit.success .btn-check .check-circle { stroke-dashoffset: 0; }
+.btn-submit.success .btn-check .check-path   { stroke-dashoffset: 0; }
+
+.form-message {
+  margin-top: .9rem;
+  padding: .75rem 1rem;
+  border-radius: var(--r-sm);
+  font-size: .9rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.form-success {
+  background: #d4edda;
+  color: #1a5e35;
+  border: 1px solid #b8ddc5;
+}
+.form-error {
+  background: #fce8e6;
+  color: #8b1a14;
+  border: 1px solid #f5c6c3;
+}
+
+/* ---- FOOTER ---- */
+.site-footer {
+  background: #0f1217;
+  color: rgba(255,255,255,.58);
+  padding-top: 3.5rem;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.footer-logo {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  display: block;
+  margin-bottom: .5rem;
+}
+
+.footer-tagline {
+  font-size: .9rem;
+  margin-bottom: .35rem;
+  color: rgba(255,255,255,.55);
+}
+
+.footer-address {
+  font-size: .87rem;
+  color: rgba(255,255,255,.42);
+}
+
+.footer-links-heading {
+  font-family: var(--font-head);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.36);
+  margin-bottom: 1rem;
+}
+
+.footer-links ul,
+.footer-contact ul {
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+
+.footer-links a,
+.footer-contact a {
+  font-size: .9rem;
+  color: rgba(255,255,255,.58);
+  transition: color .2s ease;
+  text-decoration: none;
+}
+.footer-links a:hover,
+.footer-contact a:hover { color: #fff; }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding-block: 1.25rem;
+  font-size: .8rem;
+  color: rgba(255,255,255,.3);
+}
+.footer-bottom a {
+  color: rgba(255,255,255,.46);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color .2s;
+}
+.footer-bottom a:hover { color: rgba(255,255,255,.75); }
+
+/* ---- SCROLL-IN ANIMATIONS ---- */
+.scroll-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.scroll-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 960px) {
+  .nav-links  { display: none; }
+  .btn-nav    { display: none; }
+  .hamburger  { display: flex; }
+
+  .tietoa-container,
+  .yhteydenotto-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .tietoa-image img { height: 300px; }
+  .tietoa-content .section-title { text-align: center; }
+  .tietoa-content .section-tag   { display: block; text-align: center; }
+
+  .prosessi-aikajana {
+    flex-direction: column;
+    overflow-x: visible;
+  }
+  .prosessi-arrow { display: none; }
+  .prosessi-step {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+    gap: 1.1rem;
+    padding: 1rem .5rem;
+    min-width: auto;
+  }
+  .step-number { margin-bottom: 0; flex-shrink: 0; }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 640px) {
+  :root { --header-h: 64px; }
+
+  .section { padding-block: 3.5rem; }
+  .hero-content { padding-block: 3.5rem; }
+
+  .hero-ctas {
+    flex-direction: column;
+    gap: .75rem;
+  }
+  .hero-ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .form-row { grid-template-columns: 1fr; }
+
+  .footer-container { grid-template-columns: 1fr; }
+  .footer-brand { grid-column: auto; }
+
+  .logo-bar-logos { gap: 1.5rem 2rem; }
+
+  .palvelut-grid,
+  .takuu-grid,
+  .kohteet-grid { grid-template-columns: 1fr; }
+
+  .sijainti-info { flex-direction: column; gap: .9rem; }
+
+  .yhteydenotto-container { gap: 2rem; }
+  .lomake-wrapper { padding: 1.5rem; }
+
+  .footer-bottom { flex-direction: column; gap: .35rem; }
+}
+
+@media (max-width: 400px) {
+  .lomake-wrapper { padding: 1.1rem; }
+  .section-title { font-size: 1.5rem; }
+}
+
+html { overflow-x: hidden; }
+.nav-menu { z-index: 999; }
+
+/* === Visuaaliset korjaukset === */
+/* ============================================
+   KORJAUKSET
+   1. Hero-title font-size pienemmäksi – teksti leikkaantui oikealta
+      sekä desktopilla että mobiilissa
+   2. Hero overflow piilotetaan varmuuden vuoksi
+   3. Mobile-menu saa opaque taustan
+   ============================================ */
+
+/* --- 1. Hero-title koko --- */
+.hero-title {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1.15;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* --- 2. Hero overflow --- */
+.hero {
+  overflow: hidden;
+}
+
+/* --- 3. Mobile-menu opaque tausta --- */
+.mobile-menu {
+  background-color: #0f172a; /* tumma, vastaa tyypillistä nav-väriä */
+  /* Jos sivustolla on CSS-muuttuja, käytä sitä: background-color: var(--color-bg-dark, #0f172a); */
+}
+
+/* --- 4. Mobiilissa hero-title varmistus --- */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(1.75rem, 8vw, 2.4rem);
+    line-height: 1.2;
+  }
+
+  .hero-content {
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+  }
+}
+
+/* === Visuaaliset korjaukset === */
+/* =============================================
+   KORJAUKSET
+   1. Hero-title leikkautuu – overflow fix ja font-size pienemmäksi
+   2. Hero-content container overflow: visible
+   3. Mobiilinavigaation tausta opaakki
+   ============================================= */
+
+/* 1. Hero-otsikon ylivuoto korjattu */
+.hero-title {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  line-height: 1.2;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 2. Hero-content ei leikkaa tekstiä */
+.hero-content {
+  overflow: visible;
+}
+
+/* 3. Hero-section ei leikkaa sisältöä */
+.hero {
+  overflow: hidden; /* pitää taustan, mutta hero-content on absoluuttinen – ei leikkaa tekstiä */
+}
+
+/* Varmista ettei hero leikkaa hero-content -diviä */
+.hero-content.container {
+  max-width: 700px;
+  overflow: visible;
+}
+
+/* 4. Mobiilinavigaation opaque tausta */
+.mobile-menu {
+  background-color: #0f172a; /* tumma, sama sävy kuin header */
+  position: relative;
+  z-index: 999;
+}
+
+.mobile-menu ul {
+  background-color: #0f172a;
+}
+
+/* 5. Varmista että prosessi-aikajana ei mene rikki mobiilissa */
+@media (max-width: 600px) {
+  .prosessi-aikajana {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .prosessi-arrow {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: clamp(1.6rem, 7vw, 2.5rem);
+  }
+}
